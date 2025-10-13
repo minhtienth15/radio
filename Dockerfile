@@ -12,7 +12,7 @@ WORKDIR /var/www/html
 RUN apk add --no-cache curl
 
 # 4️⃣ Copy PHP script into the container
-COPY hls_to_http_stream.php .
+COPY play.php .
 
 # 5️⃣ Expose port 8080 (the web server will listen here)
 EXPOSE 8080
