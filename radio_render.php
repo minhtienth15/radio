@@ -13,7 +13,7 @@ header('Cache-Control: no-cache, no-store, must-revalidate');
 header('Connection: keep-alive');
 
 /* 🔗 LINK M3U8 CỐ ĐỊNH */
-$M3U8_URL = "https://example.com/live/audio.m3u8";
+$M3U8_URL = "https://play.vovgiaothong.vn/live/gthn2/playlist.m3u8";
 
 /* --- Helper: tải nội dung nhỏ (playlist) --- */
 function get_text($url) {
