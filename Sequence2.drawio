@@ -309,6 +309,102 @@
             </Array>
           </mxGeometry>
         </mxCell>
+        <mxCell id="aBM7MTk3j6xFeT8dqXc8-18" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fontFamily=Times New Roman;fontSize=20;" value="User" vertex="1">
+          <mxGeometry height="720" width="150" x="30" y="2650" as="geometry" />
+        </mxCell>
+        <mxCell id="aBM7MTk3j6xFeT8dqXc8-19" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fontFamily=Times New Roman;fontSize=20;" value="Giao diện" vertex="1">
+          <mxGeometry height="720" width="150" x="315" y="2650" as="geometry" />
+        </mxCell>
+        <mxCell id="aBM7MTk3j6xFeT8dqXc8-20" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fontFamily=Times New Roman;fontSize=20;" value="ĐK sản phẩm" vertex="1">
+          <mxGeometry height="720" width="150" x="622" y="2650" as="geometry" />
+        </mxCell>
+        <mxCell id="aBM7MTk3j6xFeT8dqXc8-21" parent="1" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fontFamily=Times New Roman;fontSize=20;" value="Product" vertex="1">
+          <mxGeometry height="720" width="150" x="910" y="2650" as="geometry" />
+        </mxCell>
+        <mxCell id="aBM7MTk3j6xFeT8dqXc8-22" edge="1" parent="1" source="aBM7MTk3j6xFeT8dqXc8-18" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;fontFamily=Times New Roman;fontSize=20;" target="aBM7MTk3j6xFeT8dqXc8-19" value="1. Truy cập trang sản phẩm">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="256" y="2759" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aBM7MTk3j6xFeT8dqXc8-23" edge="1" parent="1" source="aBM7MTk3j6xFeT8dqXc8-19" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;fontFamily=Times New Roman;fontSize=20;" target="aBM7MTk3j6xFeT8dqXc8-20" value="2. Yêu cầu lấy danh sách sản phẩm">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="552" y="2813" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aBM7MTk3j6xFeT8dqXc8-24" edge="1" parent="1" source="aBM7MTk3j6xFeT8dqXc8-20" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;fontFamily=Times New Roman;fontSize=20;" target="aBM7MTk3j6xFeT8dqXc8-21" value="3. Truy vấn danh sách sản phẩm">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="850" y="2867" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aBM7MTk3j6xFeT8dqXc8-25" edge="1" parent="1" source="aBM7MTk3j6xFeT8dqXc8-21" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;fontFamily=Times New Roman;fontSize=20;" target="aBM7MTk3j6xFeT8dqXc8-20" value="4. Trả về danh sách sản phẩm">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="853" y="2921" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aBM7MTk3j6xFeT8dqXc8-26" edge="1" parent="1" source="aBM7MTk3j6xFeT8dqXc8-20" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;fontFamily=Times New Roman;fontSize=20;" target="aBM7MTk3j6xFeT8dqXc8-19" value="5. Gửi danh sách sản phẩm">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="555" y="2975" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aBM7MTk3j6xFeT8dqXc8-27" edge="1" parent="1" source="aBM7MTk3j6xFeT8dqXc8-19" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;fontFamily=Times New Roman;fontSize=20;" target="aBM7MTk3j6xFeT8dqXc8-18" value="6. Hiển thị danh sách sản phẩm">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="259" y="3029" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aBM7MTk3j6xFeT8dqXc8-28" edge="1" parent="1" source="aBM7MTk3j6xFeT8dqXc8-18" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;fontFamily=Times New Roman;fontSize=20;" target="aBM7MTk3j6xFeT8dqXc8-19" value="7. Chọn xem chi tiết sản phẩm">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="256" y="3083" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aBM7MTk3j6xFeT8dqXc8-29" edge="1" parent="1" source="aBM7MTk3j6xFeT8dqXc8-19" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;fontFamily=Times New Roman;fontSize=20;" target="aBM7MTk3j6xFeT8dqXc8-20" value="8. Yêu cầu chi tiết sản phẩm">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="552" y="3137" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aBM7MTk3j6xFeT8dqXc8-30" edge="1" parent="1" source="aBM7MTk3j6xFeT8dqXc8-20" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;fontFamily=Times New Roman;fontSize=20;" target="aBM7MTk3j6xFeT8dqXc8-21" value="9. Truy vấn chi tiết sản phẩm">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="850" y="3191" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aBM7MTk3j6xFeT8dqXc8-31" edge="1" parent="1" source="aBM7MTk3j6xFeT8dqXc8-21" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;fontFamily=Times New Roman;fontSize=20;" target="aBM7MTk3j6xFeT8dqXc8-20" value="10. Trả về chi tiết sản phẩm">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="853" y="3245" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aBM7MTk3j6xFeT8dqXc8-32" edge="1" parent="1" source="aBM7MTk3j6xFeT8dqXc8-20" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;fontFamily=Times New Roman;fontSize=20;" target="aBM7MTk3j6xFeT8dqXc8-19" value="11. Gửi thông tin chi tiết">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="555" y="3299" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="aBM7MTk3j6xFeT8dqXc8-33" edge="1" parent="1" source="aBM7MTk3j6xFeT8dqXc8-19" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;fontFamily=Times New Roman;fontSize=20;" target="aBM7MTk3j6xFeT8dqXc8-18" value="12. Hiển thị chi tiết sản phẩm">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="259" y="3353" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
