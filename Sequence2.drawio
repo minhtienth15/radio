@@ -233,10 +233,10 @@
         <mxCell id="aBM7MTk3j6xFeT8dqXc8-5" parent="1" style="shape=umlFrame;dashed=1;pointerEvents=0;dropTarget=0;strokeColor=#B3B3B3;height=20;width=30;fontFamily=Times New Roman;fontSize=20;" value="alt" vertex="1">
           <mxGeometry height="418" width="1001" x="94" y="2191" as="geometry" />
         </mxCell>
-        <mxCell id="aBM7MTk3j6xFeT8dqXc8-6" parent="aBM7MTk3j6xFeT8dqXc8-5" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;" value="[Email/Username đã tồn tại]" vertex="1">
+        <mxCell id="aBM7MTk3j6xFeT8dqXc8-6" parent="aBM7MTk3j6xFeT8dqXc8-5" style="text;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=20;" value="[Email/Username đã tồn tại]" vertex="1">
           <mxGeometry height="20" width="971" x="30" as="geometry" />
         </mxCell>
-        <mxCell id="aBM7MTk3j6xFeT8dqXc8-7" parent="aBM7MTk3j6xFeT8dqXc8-5" style="shape=line;dashed=1;whiteSpace=wrap;verticalAlign=top;labelPosition=center;verticalLabelPosition=middle;align=center;strokeColor=#B3B3B3;" value="[Email/Username hợp lệ]" vertex="1">
+        <mxCell id="aBM7MTk3j6xFeT8dqXc8-7" parent="aBM7MTk3j6xFeT8dqXc8-5" style="shape=line;dashed=1;whiteSpace=wrap;verticalAlign=top;labelPosition=center;verticalLabelPosition=middle;align=center;strokeColor=#B3B3B3;fontFamily=Times New Roman;fontSize=20;" value="[Email/Username hợp lệ]" vertex="1">
           <mxGeometry height="6" width="1001" y="160" as="geometry" />
         </mxCell>
         <mxCell id="aBM7MTk3j6xFeT8dqXc8-8" edge="1" parent="1" source="aBM7MTk3j6xFeT8dqXc8-1" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;fontFamily=Times New Roman;fontSize=20;" target="aBM7MTk3j6xFeT8dqXc8-2" value="1. Điền thông tin đăng ký">
