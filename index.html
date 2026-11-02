@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>RadioPlayer</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="flex flex-col h-screen max-h-screen bg-black text-zinc-100 selection:bg-orange-500 selection:text-white">
+
+<div id="dynamic-bg"></div>
+<div class="crt-overlay"></div>
+<div id="blur-bg" class="overlay-blur" onclick="closeAllPanels()"></div>
+
+<!-- NAVIGATION -->
+<nav class="h-14 border-b border-white/5 px-6 md:px-10 flex justify-between items-center bg-black/40 backdrop-blur-md z-50">
+    <div class="flex items-center gap-4">
+        <div id="radio-logo-container" class="hidden">
+            <img id="radio-logo" src="" alt="Logo" class="h-8 w-auto">
+        </div>
+        <h1 id="brand-name" class="font-black text-xl tracking-tighter uppercase italic glitch-hover cursor-default">
+            Radio<span class="text-[var(--primary)]">Player</span>
+        </h1>
+    </div>
+    
+    <div class="flex items-center gap-8">
+        <a href="https://github.com/joeyboli/radioplayer" target="_blank" rel="noopener noreferrer" class="text-zinc-500 hover:text-white transition-colors group">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.43.372.823 1.102.823 2.222 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+            </svg>
+        </a>
+    </div>
+</nav>
+
+<!-- LYRICS PANEL -->
+<aside id="lyrics-panel" class="flex flex-col glass">
+    <div class="p-6 border-b border-white/5 flex justify-between items-center">
+        <h3 class="font-black text-2xl uppercase italic tracking-tight">Lyrics</h3>
+        <button onclick="closeAllPanels()" class="mono text-[10px] text-zinc-400 border border-white/10 px-5 py-2 hover:bg-white/5 hover:text-white transition-all uppercase tracking-widest">CLOSE</button>
+    </div>
+    <div id="lyrics-body" class="flex-1 overflow-y-auto p-10 mono text-sm leading-relaxed lyrics-content text-zinc-300"></div>
+</aside>
+
+<!-- PLAY HISTORY PANEL -->
+<aside id="history-panel" class="flex flex-col glass">
+    <div class="p-6 border-b border-white/5 flex justify-between items-center text-[var(--primary)]">
+        <h3 class="font-black text-2xl uppercase italic tracking-tight">Play History</h3>
+        <button onclick="closeAllPanels()" class="mono text-[10px] text-zinc-400 border border-white/10 px-5 py-2 hover:bg-white/5 hover:text-white transition-all uppercase tracking-widest">CLOSE</button>
+    </div>
+    <div id="full-history-list" class="flex-1 overflow-y-auto p-6 space-y-6 bg-black/10"></div>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="flex-1 overflow-y-auto p-8 md:p-12 lg:p-16">
+    <div class="max-w-6xl mx-auto">
+        <!-- Station Identity (Mobile top, Desktop stays on right but using order or separate placement) -->
+        <!-- We'll place it here to be at the very top on mobile -->
+        <div class="flex items-center gap-6 mb-10 group/station lg:hidden">
+            <div class="flex flex-col leading-tight border-l border-[var(--primary)]/30 pl-5">
+                <span class="mono text-[8px] text-[var(--primary)] uppercase tracking-[0.3em] font-black opacity-60 mb-0.5">Tuned to Station</span>
+                <span id="main-station-name-mobile" class="mono text-[13px] text-white uppercase tracking-[0.25em] font-black italic">RAP GLOBAL</span>
+            </div>
+        </div>
+
+        <div class="flex flex-col lg:grid lg:grid-cols-12 gap-10 lg:gap-20 items-center">
+
+            <div class="lg:col-span-5 w-full max-w-[440px] lg:max-w-none mx-auto lg:mx-0">
+                <div class="relative group">
+                    <!-- Decorative Frame -->
+                    <div class="absolute -inset-4 border border-white/5 pointer-events-none rounded-sm"></div>
+                    <div class="absolute -top-4 -left-4 w-8 h-8 border-t-2 border-l-2 border-[var(--primary)] pointer-events-none"></div>
+                    <div class="absolute -bottom-4 -right-4 w-8 h-8 border-b-2 border-r-2 border-[var(--primary)] pointer-events-none"></div>
+
+                    <div class="aspect-square bg-zinc-900 border border-white/10 relative overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.6)] transition-transform duration-700 group-hover:scale-[1.01]">
+                        <img id="main-artwork" class="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700" alt="Album artwork">
+
+                        <!-- Metadata Overlay -->
+                        <div class="absolute bottom-4 left-4 right-4 flex justify-between items-end transition-opacity duration-500">
+                            <div class="bg-black/80 backdrop-blur-md px-4 py-2 mono text-[9px] text-zinc-300 uppercase tracking-widest border border-white/10 flex gap-4 divide-x divide-white/10">
+                                <div class="flex gap-2"><span class="text-[var(--primary)]/70">Bitrate</span><span id="art-bitrate">---</span></div>
+                                <div class="pl-4 flex gap-2"><span class="text-[var(--primary)]/70">Format</span><span id="art-format">---</span></div>
+                                <div class="pl-4 flex gap-2"><span class="text-[var(--primary)]/70">Year</span><span id="art-year">----</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-10 relative overflow-hidden h-20 bg-white shadow-lg group rounded-sm">
+                    <div id="progress-shadow" class="absolute top-0 left-0 bottom-0 w-0 z-0 opacity-20"></div>
+                    <button onclick="togglePlayback()" id="master-play-btn" class="relative z-10 w-full h-full px-10 flex items-center justify-between text-black transition-all duration-500">
+                        <div class="flex items-center gap-5 text-left">
+                            <div class="w-8 h-8 transition-transform group-active:scale-90"><svg id="play-icon" class="w-full h-full fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+                            <div class="flex flex-col leading-none">
+                                <span id="play-text" class="font-black uppercase italic tracking-tighter text-3xl md:text-4xl">PLAY</span>
+                                <span id="progress-text" class="mono text-[10px] uppercase tracking-[0.25em] mt-1.5 opacity-50 font-bold">Ready</span>
+                            </div>
+                        </div>
+                        <div id="visualizer" class="flex items-end gap-1.5">
+                            <div class="v-bar"></div><div class="v-bar"></div><div class="v-bar"></div><div class="v-bar"></div>
+                            <div class="v-bar"></div><div class="v-bar"></div><div class="v-bar"></div><div class="v-bar"></div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- RIGHT: INFO & LOG -->
+            <div class="lg:col-span-7 w-full">
+                <div class="mb-10 relative">
+                    <div id="metadata-loader" class="absolute -top-8 left-0 mono text-[10px] text-[var(--primary)] tracking-[0.5em] hidden animate-pulse font-black uppercase">>> Refreshing...</div>
+                    
+                    <div class="hidden lg:flex items-center gap-6 mb-8 group/station">
+                        <div class="flex flex-col leading-tight border-l border-white/10 pl-5">
+                            <span class="mono text-[8px] text-[var(--primary)] uppercase tracking-[0.3em] font-black opacity-60 mb-0.5">Tuned to Station</span>
+                            <span id="main-station-name" class="mono text-[13px] text-white uppercase tracking-[0.25em] font-black italic">RAP GLOBAL</span>
+                        </div>
+                    </div>
+
+                    <div id="track-name" class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter uppercase leading-[0.9] mb-6 italic line-clamp-3 text-white">
+                        Connecting...
+                    </div>
+                    <p id="artist-name" class="text-xl md:text-2xl font-medium text-zinc-400 line-clamp-2 uppercase tracking-tight">
+                        Loading Stream Info
+                    </p>
+                </div>
+
+                <div id="history-container" class="border-t border-white/5 pt-10">
+                    <div class="flex justify-between items-center mb-8">
+                        <div class="flex items-center gap-4">
+                            <h3 class="mono text-[11px] text-zinc-500 uppercase tracking-[0.4em] font-bold">Recent Tracks</h3>
+                            <span class="px-2.5 py-1 rounded-full bg-white/5 mono text-[8px] text-zinc-600 border border-white/5">v2.0.4</span>
+                        </div>
+                        <div class="flex gap-6">
+                            <button id="btn-lyrics-toggle" onclick="openLyrics()" class="hidden mono text-[10px] text-zinc-400 uppercase font-black hover:text-[var(--primary)] transition-colors tracking-widest">LYRICS</button>
+                            <button onclick="openHistory()" class="mono text-[10px] text-[var(--primary)] uppercase font-black hover:text-white transition-colors tracking-widest">HISTORY</button>
+                        </div>
+                    </div>
+                    <div id="history-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="js/script.js?v3"></script>
+</body>
+</html>
